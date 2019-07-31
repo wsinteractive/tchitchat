@@ -4,7 +4,7 @@ import Rooms from '..';
 
 Meteor.methods({
   'rooms.create': function (name) {
-    tests.connected();
+    tests.isConnected();
 
     const id = Rooms.insert({
       name,
@@ -19,7 +19,7 @@ Meteor.methods({
   },
 
   'rooms.update': function ({ id, name }) {
-    tests.connected();
+    tests.isConnected();
     tests.isOwnerOfRoom({
       userId: this.userId,
       roomId: id,
@@ -29,7 +29,7 @@ Meteor.methods({
   },
 
   'rooms.remove': function (id) {
-    tests.connected();
+    tests.isConnected();
     tests.isOwnerOfRoom({
       userId: this.userId,
       roomId: id,
@@ -39,7 +39,7 @@ Meteor.methods({
   },
 
   'rooms.get': function () {
-    tests.connected();
+    tests.isConnected();
 
     return Rooms.find({}, {
       sort: { createdAt: -1 },
@@ -48,14 +48,14 @@ Meteor.methods({
   },
 
   'room.getOne': function (id) {
-    tests.connected();
+    tests.isConnected();
 
     return Rooms.findOne(id);
   },
 
 
   'rooms.last': function () {
-    tests.connected();
+    tests.isConnected();
 
     return Rooms.findOne({}, {
       sort: { createdAt: -1 },
