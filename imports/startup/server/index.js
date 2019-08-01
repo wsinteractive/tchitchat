@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
-import '/imports/api/Messages/server/';
-import '/imports/api/Rooms/server/';
-import '/imports/api/Users/server/';
+import '/imports/api/messages/server/';
+import '/imports/api/rooms/server/';
+import '/imports/api/users/server/';
 
 Meteor.startup(() => {});
