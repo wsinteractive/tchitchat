@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import Messages from '..';
 
-Meteor.publish('messages.lasts_by_roomId', ({ roomId }) => {
+Meteor.publish('messages.by_roomId', ({ roomId }) => {
   return Messages.find({ roomId }, {
     fields: {
       userId: 1,

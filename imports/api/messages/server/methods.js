@@ -3,9 +3,9 @@ import tests from '/imports/utils/tests';
 import Messages from '..';
 
 Meteor.methods({
-  "message.create": function({ content, roomId }) {
+  "messages.create": function ({ content, roomId }) {
     tests.isConnected();
-    tests.isOwnerOfRoom({
+    tests.roomExist({
       userId: this.userId,
       roomId,
     });

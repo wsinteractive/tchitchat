@@ -14,9 +14,9 @@ Meteor.methods({
   }) {
     check(username, String);
     check(email,    String);
-    tests.connected();
+    tests.isConnected();
 
-    Meteor.users.update({ _id: Meteor.userId() }, {
+    Meteor.users.update(this.userId, {
       $set: {
         age,
         city,
@@ -31,6 +31,17 @@ Meteor.methods({
       Accounts.addEmail(this.userId, email);
       Accounts.removeEmail(this.userId, oldEmail);
     }
-
   },
+
+  'users.name_by_id': function({ id }) {
+    tests.isConnected();
+
+    const user = Meteor.users.findOne(id);
+
+    if (!user) {
+      throw new Meteor.Error('404', 'Utilisateur non trouvé');
+    }
+
+    return user.username;
+  }
 });

@@ -4,12 +4,12 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Route, Redirect } from 'react-router-dom';
 
 const NotLogged = ({ path, component, userId }) => {
-    if (userId) {
-        return <Redirect to="/rooms" />
-    }
-    return <Route path={path} component={component} />
+  if (userId) {
+    return <Redirect to="/rooms" />
+  }
+  return <Route path={path} component={component} />
 };
 
 export default withTracker(() => ({
-    userId: Meteor.userId(),
+  userId: Meteor.userId(),
 }))(NotLogged);
