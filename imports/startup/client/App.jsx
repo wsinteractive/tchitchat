@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 
-import Logged     from '/imports/ui/components/Routes/Logged';
-import NotLogged  from '/imports/ui/components/Routes/NotLogged';
+import Logged     from '/imports/ui/components/routes/Logged';
+import NotLogged  from '/imports/ui/components/routes/NotLogged';
 import SideBar    from '/imports/ui/components/SideBar';
 
 import Landing    from '/imports/ui/modules/Landing';
